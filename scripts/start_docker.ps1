@@ -95,7 +95,7 @@ function Get-PostgresVolumeName {
 function Test-DockerVolumeExists {
     param([string]$Name)
 
-    docker volume inspect $Name *> $null
+    $null = docker volume inspect $Name 2>&1
     return $LASTEXITCODE -eq 0
 }
 
@@ -214,7 +214,7 @@ Write-Host ''
 Write-Host "Docker registry: $Registry"
 Write-Host ''
 Write-Host 'This will run:'
-Write-Host "  `$env:REGISTRY = '$Registry'; `$env:ENABLE_TELEMETRY = '$EnableTelemetry'; docker compose --profile tunnel up --pull always"
+Write-Host "  `$env:ENABLE_TELEMETRY = '$EnableTelemetry'; docker compose --profile tunnel up --build --pull missing"
 Write-Host ''
 
 $answer = Read-Host 'Start Dograh now? [Y/n]'
@@ -226,7 +226,7 @@ if ($answer -match '^[Nn]') {
 $env:REGISTRY = $Registry
 $env:ENABLE_TELEMETRY = $EnableTelemetry
 Sync-PostgresPassword -Password (Get-DotEnvValue -Path $EnvFile -Key 'POSTGRES_PASSWORD')
-docker compose --profile tunnel up --pull always
+docker compose --profile tunnel up --build --pull missing
 if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }

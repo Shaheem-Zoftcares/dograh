@@ -141,7 +141,10 @@ services:
       - app-network
 
   api:
-    image: ${REGISTRY:-dograhai}/dograh-api:latest
+    image: dograh-api:local
+    build:
+      context: .
+      dockerfile: api/Dockerfile
     environment:
       # Core application config
       ENVIRONMENT: "${ENVIRONMENT:-local}"
@@ -284,7 +287,10 @@ services:
       - app-network
 
   ui:
-    image: ${REGISTRY:-dograhai}/dograh-ui:latest
+    image: dograh-ui:local
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
     environment:
       # Bind the Next.js standalone server to all interfaces
       HOSTNAME: "0.0.0.0"
