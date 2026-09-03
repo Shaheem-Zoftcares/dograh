@@ -48,83 +48,91 @@
 
 :root {
   --radius: 0.625rem;
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  /* Single restrained warm accent — used only on primary CTAs + focus rings. */
-  --cta: oklch(0.72 0.15 65);
-  --cta-foreground: oklch(0.16 0.02 60);
-  /* Giant faded "dograh" wordmark (authentic Proxima Nova letterforms traced
-     from the brand logo PNG — the font is commercial, so the lettering ships
-     as static artwork in /public; fill + 0.9% opacity are baked into the
-     files). Theme-switched here; consumed by .app-surface and .auth-imprint. */
-  --brand-imprint: url("/brand-imprint-light.svg");
+  --background: #EEF2F7;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #096092;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E8F4FA;
+  --secondary-foreground: #0F172A;
+  --muted: #E8F4FA;
+  --muted-foreground: #64748B;
+  --accent: #F1F5F9;
+  --accent-foreground: #0F172A;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #096092;
+  --chart-1: #096092;
+  --chart-2: #04EAEC;
+  --chart-3: #191E7D;
+  --chart-4: #16A34A;
+  --chart-5: #CA8A04;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #64748B;
+  --sidebar-primary: #096092;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #096092;
+  --cta: #096092;
+  --cta-foreground: #FFFFFF;
+  --brand-imprint: none;
+
+  /* Zyli design tokens */
+  --color-primary-hover: #074A6E;
+  --color-surface: #FFFFFF;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 16px;
+  --radius-pill: 9999px;
+  --shadow-sm: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 4px 14px 0 rgb(15 23 42 / 0.06), 0 2px 6px -2px rgb(15 23 42 / 0.05);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-  /* Warm accent, slightly brighter against the near-black surfaces. */
-  --cta: oklch(0.78 0.16 67);
-  --cta-foreground: oklch(0.16 0.02 60);
-  --brand-imprint: url("/brand-imprint-dark.svg");
+  --background: #0F172A;
+  --foreground: #EEF2F7;
+  --card: #1E293B;
+  --card-foreground: #EEF2F7;
+  --popover: #1E293B;
+  --popover-foreground: #EEF2F7;
+  --primary: #096092;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1E293B;
+  --secondary-foreground: #EEF2F7;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: rgb(255 255 255 / 8%);
+  --accent-foreground: #EEF2F7;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: rgb(255 255 255 / 10%);
+  --input: rgb(255 255 255 / 15%);
+  --ring: #096092;
+  --chart-1: #096092;
+  --chart-2: #64748B;
+  --chart-3: #94A3B8;
+  --chart-4: #16A34A;
+  --chart-5: #CA8A04;
+  --sidebar: #191E7D;
+  --sidebar-foreground: #CBD5E1;
+  --sidebar-primary: #096092;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgb(255 255 255 / 10%);
+  --sidebar-accent-foreground: #EEF2F7;
+  --sidebar-border: rgb(255 255 255 / 12%);
+  --sidebar-ring: #096092;
+  --cta: #096092;
+  --cta-foreground: #FFFFFF;
+  --brand-imprint: none;
 }
 
 @layer base {
@@ -162,8 +170,8 @@
 @keyframes onboarding-pulse {
   0% {
     box-shadow:
-      0 0 0 3px rgba(59, 130, 246, 0.75),
-      0 0 0 3px rgba(59, 130, 246, 0.6);
+      0 0 0 3px rgba(9, 96, 146, 0.75),
+      0 0 0 3px rgba(9, 96, 146, 0.6);
     transform: scale(1);
   }
   40% {
@@ -171,21 +179,21 @@
   }
   70% {
     box-shadow:
-      0 0 0 3px rgba(59, 130, 246, 0.75),
-      0 0 0 18px rgba(59, 130, 246, 0);
+      0 0 0 3px rgba(9, 96, 146, 0.75),
+      0 0 0 18px rgba(9, 96, 146, 0);
     transform: scale(1);
   }
   100% {
     box-shadow:
-      0 0 0 3px rgba(59, 130, 246, 0.75),
-      0 0 0 18px rgba(59, 130, 246, 0);
+      0 0 0 3px rgba(9, 96, 146, 0.75),
+      0 0 0 18px rgba(9, 96, 146, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .onboarding-pulse {
     animation: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 0 3px rgba(9, 96, 146, 0.6);
   }
 }
 
@@ -230,15 +238,12 @@
     .auth-waveform span { animation: none; }
   }
 
-  /* Matte app background — flat charcoal (dark) / soft paper (light), NO
-     gradients, with one subtle graphic in BOTH themes: the giant faded
-     "dograh" wordmark (--brand-imprint, defined in :root/.dark) pinned to
-     the bottom of the viewport, echoing the dograh.com footer. */
+  /* Matte app background with optional brand watermark (--brand-imprint). */
   /* NOTE: background-attachment: fixed positions in VIEWPORT space but only
      paints inside .app-surface, which starts right of the ~270px sidebar —
      the +135px x-shift recentres the wordmark on the VISIBLE canvas. */
   .app-surface {
-    background-color: oklch(0.984 0.001 80);
+    background-color: #EEF2F7;
     background-image: var(--brand-imprint);
     background-size: min(68vw, 980px) auto;
     background-position: calc(50% + 135px) calc(100% - 24px);
@@ -252,13 +257,10 @@
     }
   }
   .dark .app-surface {
-    background-color: oklch(0.165 0.002 80);
+    background-color: #0F172A;
   }
 
-  /* Giant faded "dograh" imprint for the auth pages (applied to the AuthShell
-     form column, shared by Stack + OSS login/signup). Same --brand-imprint as
-     .app-surface; element-relative here (no fixed attachment), so it centers
-     and scales to whatever element carries the class. */
+  /* Optional brand watermark for auth pages. */
   .auth-imprint {
     background-image: var(--brand-imprint);
     background-size: min(86%, 920px) auto;
@@ -280,31 +282,192 @@
 .app-sidebar-dock [data-slot="sidebar-inner"] {
   border-radius: 1.25rem;
   overflow: hidden;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 30px -8px rgb(15 23 42 / 0.12);
 }
-/* Flat carbon-charcoal panel with a soft light glow along the LEFT edge:
-   a 1px highlight line plus an inner bloom fading rightwards. */
 .dark .app-sidebar-dock [data-slot="sidebar-inner"] {
-  border-color: rgb(255 255 255 / 0.1);
-  background-color: oklch(0.18 0.002 80);
-  box-shadow:
-    inset 1px 0 0 rgb(255 255 255 / 0.1),
-    inset 3px 0 6px -4px rgb(255 255 255 / 0.08),
-    0 24px 50px -14px rgb(0 0 0 / 0.85);
+  border-color: rgb(255 255 255 / 12%);
+  background-color: #191E7D;
+  box-shadow: 0 8px 30px -8px rgb(0 0 0 / 0.35);
 }
 
-/* Card surface ("Crosshatch + Top-Lit Edge", user-approved 2026-06-11 after a
-   3-round design board): a 45° hairline twill weave at 1% laid over the panel
-   colour, plus — dark mode only — a brighter SOLID top border, like light
-   catching the machined top edge of the panel. Applied app-wide by the Card
-   primitive (components/ui/card.tsx). Un-layered so border-top-color beats
-   the border-border/60 utility. No gradients (user constraint). */
-.card-weave {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 0l12 12M12 0L0 12' stroke='%23000000' stroke-opacity='.015' fill='none'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+/* Zyli cards — plain surface, soft border, rounded corners (no texture). */
+.zyli-card {
+  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
 }
-.dark .card-weave {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 0l12 12M12 0L0 12' stroke='%23ffffff' stroke-opacity='.01' fill='none'/%3E%3C/svg%3E");
-  border-top-color: rgb(255 255 255 / 0.2);
+
+.dark .zyli-card {
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.zyli-card-padded {
+  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dark .zyli-card-padded {
+  background: var(--card);
+}
+
+.zyli-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dark .zyli-stat-card {
+  background: var(--card);
+}
+
+.zyli-chart-card {
+  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dark .zyli-chart-card {
+  background: var(--card);
+}
+
+.zyli-agent-card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.dark .zyli-agent-card {
+  background: var(--card);
+}
+
+.zyli-agent-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+.zyli-rounded-sm { border-radius: var(--radius-sm); }
+.zyli-rounded-md { border-radius: var(--radius-md); }
+.zyli-rounded-lg { border-radius: var(--radius-lg); }
+.zyli-rounded-xl { border-radius: var(--radius-xl); }
+.zyli-rounded-2xl { border-radius: var(--radius-2xl); }
+.zyli-rounded-full { border-radius: var(--radius-pill); }
+
+.zyli-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgb(9 96 146 / 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.zyli-btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.zyli-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.zyli-btn-ghost:hover {
+  background: #f1f5f9;
+  color: var(--foreground);
+}
+
+.zyli-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: #334155;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.zyli-btn-outline:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.zyli-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: #64748b;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.zyli-btn-icon:hover {
+  background: #f8fafc;
+  color: var(--foreground);
+}
+
+.zyli-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.zyli-btn-danger:hover {
+  background: #b91c1c;
 }
 
 /* Lead-form shell ("Ledger" treatment, user-approved 2026-06-11): neutral

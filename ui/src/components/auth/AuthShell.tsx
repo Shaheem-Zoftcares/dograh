@@ -1,7 +1,7 @@
 // Shared dark two-column auth shell, used by BOTH the Stack Auth handler
 // (/handler/[...stack], cloud) and the local/OSS auth pages (/auth/login,
 // /auth/signup). LEFT: a centered card that wraps the auth form (`children`).
-// RIGHT (lg+ only): a brand/value panel with the Dograh logo, proof points, and
+// RIGHT (lg+ only): a brand/value panel with the Zyli logo, proof points, and
 // a Bland-style enterprise CTA block at the bottom (passed in as `enterpriseSlot`).
 // Mobile collapses to the single card column. The form column scrolls and stays
 // centered so tall (sign-up) forms never clip on short viewports. Palette is the
@@ -26,8 +26,7 @@ export function AuthShell({
 }) {
   return (
     <div className="grid min-h-screen w-full bg-background lg:grid-cols-[55%_45%]">
-      {/* Form column (LEFT) — scrolls and stays centered so tall forms never
-          clip. Carries the giant faded "dograh" imprint along its bottom. */}
+      {/* Form column (LEFT) — scrolls and stays centered so tall forms never clip. */}
       <main className="auth-imprint flex min-h-screen flex-col overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-6 sm:p-10">
           <div className="w-full max-w-md space-y-6 rounded-2xl border border-border/60 bg-card p-6 shadow-lg sm:p-8">
@@ -41,7 +40,7 @@ export function AuthShell({
       </main>
 
       {/* Brand / value panel (RIGHT) — hidden on mobile */}
-      <aside className="relative hidden flex-col justify-between overflow-hidden border-l border-border/60 bg-zinc-950 p-10 lg:flex xl:p-14">
+      <aside className="relative hidden flex-col justify-between overflow-hidden border-l border-border/60 bg-[#191E7D] p-10 lg:flex xl:p-14">
         {/* Ambient depth: soft radial glow behind the content */}
         <div
           aria-hidden
@@ -54,14 +53,14 @@ export function AuthShell({
         </div>
 
         <div className="relative max-w-md space-y-5">
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-zinc-50 xl:text-4xl">
-            The open-source voice AI platform.
+          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white xl:text-4xl">
+            The voice AI platform for modern teams.
           </h1>
           <ul className="flex flex-wrap gap-2">
             {HIGHLIGHTS.map((point) => (
               <li
                 key={point}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-zinc-300"
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-200"
               >
                 {point}
               </li>
@@ -72,11 +71,11 @@ export function AuthShell({
         {/* Enterprise CTA block (Bland-style) — bottom margin lifts it off the
             viewport edge while justify-between keeps the column layout */}
         <div className="relative mb-12 max-w-md space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-5 xl:mb-16">
-          <h2 className="text-sm font-semibold text-zinc-100">
+          <h2 className="text-sm font-semibold text-white">
             Need on-prem, data residency &amp; a data perimeter?
           </h2>
-          <p className="text-sm text-zinc-400">
-            We deploy Dograh inside your environment for regulated and
+          <p className="text-sm text-slate-300">
+            We deploy Zyli inside your environment for regulated and
             high-scale teams.
           </p>
           {enterpriseSlot}

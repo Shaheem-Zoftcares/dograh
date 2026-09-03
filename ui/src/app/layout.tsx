@@ -31,8 +31,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dograh",
-  description: "Open Source Voice Assistant Workflow Builder",
+  title: "Zyli",
+  description: "Voice AI platform — build and deploy conversational agents",
+  icons: {
+    icon: "/zyli-favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -44,23 +47,23 @@ export default function RootLayout({
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Inline script to prevent flash of light theme - runs before React hydrates.
-            Dark is the locked default: only an explicit stored 'light' opts out. */}
+        {/* Inline script to prevent flash of wrong theme - runs before React hydrates.
+            Light is the default: only an explicit stored 'dark' opts in. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  if (theme === 'light') {
-                    document.documentElement.classList.remove('dark');
-                  } else {
+                  if (theme === 'dark') {
                     document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch (e) {
-                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('dark');
                 }
               })();
             `,
@@ -71,7 +74,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
         {metaPixelId ? <MetaPixel pixelId={metaPixelId} /> : null}
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <SentryErrorBoundary>
             <AuthProvider>
               <AppConfigProvider>
