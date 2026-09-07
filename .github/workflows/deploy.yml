@@ -1,0 +1,88 @@
+name: Deploy to Production VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-push:
+    name: Build & Push Docker Images
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - service: dograh-api
+            dockerfile: api/Dockerfile
+            context: .
+          - service: dograh-ui
+            dockerfile: ui/Dockerfile
+            context: .
+
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push ${{ matrix.service }}
+        uses: docker/build-push-action@v7
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_REPO }}/${{ matrix.service }}:latest
+            ${{ secrets.DOCKERHUB_REPO }}/${{ matrix.service }}:${{ github.sha }}
+          cache-from: type=gha,scope=${{ matrix.service }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.service }}
+
+  deploy:
+    name: SSH Deploy to VPS
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote deploy via SSH
+        uses: appleboy/ssh-action@v1.2.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            set -euo pipefail
+
+            # Locate deployment directory (~/zyli, ~/dograh, or current working directory)
+            DEPLOY_DIR="${HOME}/zyli"
+            if [ ! -d "$DEPLOY_DIR" ]; then
+              DEPLOY_DIR="${HOME}/dograh"
+            fi
+            if [ ! -d "$DEPLOY_DIR" ] && [ -f "./docker-compose.yaml" ]; then
+              DEPLOY_DIR="$(pwd)"
+            fi
+
+            cd "$DEPLOY_DIR"
+            echo "Deploying in: $DEPLOY_DIR"
+
+            # Pull updated images specified in docker-compose.override.yaml
+            docker compose pull api ui
+
+            # Restart stack through validated startup wrapper
+            ./remote_up.sh

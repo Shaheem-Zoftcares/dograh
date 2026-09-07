@@ -1,0 +1,8 @@
+services:
+  api:
+    image: ${DOCKERHUB_REPO}/dograh-api:latest
+    pull_policy: always
+
+  ui:
+    image: ${DOCKERHUB_REPO}/dograh-ui:latest
+    pull_policy: always

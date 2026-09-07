@@ -27,3 +27,13 @@ node_modules/
 .superpowers/
 docs/superpowers/
 .gstack/
+
+# Archives & Temporary deployment bundles
+*.tar.gz
+*.tar
+*.zip
+bundle.tar.gz
+
+# Subagent run artifacts (preserve skills)
+.agents/*
+!.agents/skills/
