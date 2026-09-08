@@ -496,7 +496,7 @@ export default function CampaignDetailPage() {
                 </Button>
                 <div className="flex justify-between items-start">
                     <div>
-                        <h1 className="text-3xl font-bold mb-2">{campaign.name}</h1>
+                        <h1 className="mb-2">{campaign.name}</h1>
                             <div className="flex items-center gap-4">
                                 <Badge variant={getStateBadgeVariant(campaign.state)}>
                                     {campaign.state}

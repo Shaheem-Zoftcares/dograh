@@ -49,7 +49,7 @@ export function LoginForm({ signupEnabled }: { signupEnabled: boolean }) {
   return (
     <AuthShell enterpriseSlot={<AuthEnterpriseCTA />}>
       <div className="space-y-1.5 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight">Sign in</h1>
+        <h1>Sign in</h1>
         <p className="text-sm text-muted-foreground">
           Enter your email and password to continue
         </p>

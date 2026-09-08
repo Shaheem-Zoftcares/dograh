@@ -25,7 +25,7 @@ export function WorkflowCard({ id, name, createdAt }: WorkflowCardProps) {
             onClick={handleClick}
         >
             <div>
-                <h3 className="text-lg font-semibold mb-2">{name}</h3>
+                <h3 className="mb-2">{name}</h3>
                 <p className="text-gray-600 mb-2">
                     Created: {formatDate(createdAt, organizationTimezone)}
                 </p>

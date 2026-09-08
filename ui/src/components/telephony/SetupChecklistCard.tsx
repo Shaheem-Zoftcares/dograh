@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertTriangle, Check, Circle, ExternalLink } from "lucide-react";
+import { AlertTriangle, Check, Circle } from "lucide-react";
 
 import type {
   ProviderSetupChecklist,
@@ -43,16 +43,6 @@ export function SetupChecklistCard({
       <CardHeader className="space-y-1">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <CardTitle>Setup checklist</CardTitle>
-          {checklist.docs_url && (
-            <a
-              href={checklist.docs_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm underline"
-            >
-              Setup guide <ExternalLink className="h-3 w-3" />
-            </a>
-          )}
         </div>
         <CardDescription>
           {connectivity === "sip"

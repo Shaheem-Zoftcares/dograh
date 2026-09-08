@@ -53,7 +53,7 @@ export function AuthShell({
         </div>
 
         <div className="relative max-w-md space-y-5">
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white xl:text-4xl">
+          <h1 className="leading-tight tracking-tight text-white">
             The voice AI platform for modern teams.
           </h1>
           <ul className="flex flex-wrap gap-2">

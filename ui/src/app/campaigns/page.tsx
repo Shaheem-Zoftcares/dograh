@@ -96,7 +96,7 @@ export default function CampaignsPage() {
         <div className="container mx-auto p-6 space-y-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold mb-2">Campaigns</h1>
+                    <h1 className="mb-2">Campaigns</h1>
                     <p>Manage your bulk workflow execution campaigns</p>
                 </div>
                     <Button onClick={handleCreateCampaign}>

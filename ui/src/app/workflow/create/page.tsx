@@ -83,7 +83,7 @@ export default function CreateWorkflowPage() {
         <div className="min-h-screen">
             <div className="container mx-auto px-4 py-8 max-w-2xl">
                 <div className="mb-6">
-                    <h1 className="text-3xl font-bold mb-2">Create Voice Agent</h1>
+                    <h1 className="mb-2">Create Voice Agent</h1>
                     <p className="text-muted-foreground">
                         Tell us about your use case and we&apos;ll create a customized voice agent for you
                     </p>
@@ -173,7 +173,7 @@ export default function CreateWorkflowPage() {
                             </div>
 
                             <div className="text-center space-y-2">
-                                <h3 className="text-lg font-semibold">
+                                <h3>
                                     Creating Your Workflow
                                 </h3>
                                 <p className="text-sm text-muted-foreground max-w-xs">

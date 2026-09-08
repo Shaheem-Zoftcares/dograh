@@ -202,7 +202,7 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold">Daily Reports</h1>
+          <h1>Daily Reports</h1>
         </div>
 
         {/* Date Navigation & Workflow Selector */}

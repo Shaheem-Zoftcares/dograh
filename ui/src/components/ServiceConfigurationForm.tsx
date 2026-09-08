@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Plus, X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -564,19 +564,9 @@ export function ServiceConfigurationForm({
                                 ))}
                             </SelectContent>
                         </Select>
-                        {(providerSchema?.description || providerSchema?.provider_docs_url) && (
+                        {(providerSchema?.description) && (
                             <p className="text-xs text-muted-foreground">
-                                {providerSchema?.description}{" "}
-                                {providerSchema?.provider_docs_url && (
-                                    <a
-                                        href={providerSchema.provider_docs_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-0.5 underline"
-                                    >
-                                        Learn more <ExternalLink className="h-3 w-3" />
-                                    </a>
-                                )}
+                                {providerSchema?.description}
                             </p>
                         )}
                     </div>
@@ -668,20 +658,10 @@ export function ServiceConfigurationForm({
         const actualSchema = schema.$ref && providerSchema.$defs
             ? providerSchema.$defs[schema.$ref.split('/').pop() || '']
             : schema;
-        if (!actualSchema?.description && !actualSchema?.docs_url) return null;
+        if (!actualSchema?.description) return null;
         return (
             <p className="text-xs text-muted-foreground">
-                {actualSchema?.description}{" "}
-                {actualSchema?.docs_url && (
-                    <a
-                        href={actualSchema.docs_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-0.5 underline"
-                    >
-                        Supported languages <ExternalLink className="h-3 w-3" />
-                    </a>
-                )}
+                {actualSchema.description}
             </p>
         );
     };

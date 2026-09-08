@@ -30,7 +30,7 @@ export default async function Handler(props: unknown) {
     return (
       <AuthShell enterpriseSlot={<AuthEnterpriseCTA />}>
         <div className="space-y-2 text-center text-zinc-200">
-          <h1 className="text-xl font-semibold">Local Auth Mode</h1>
+          <h1>Local Auth Mode</h1>
           <p className="text-sm text-muted-foreground">
             Stack Auth handler is disabled when using local authentication.
           </p>

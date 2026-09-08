@@ -1,6 +1,6 @@
 "use client";
 
-import { Copy, ExternalLink } from "lucide-react";
+import { Copy } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 
@@ -301,16 +301,6 @@ export function ConfigFormDialog({
               <p className="text-xs text-muted-foreground">
                 Provider cannot be changed after creation.
               </p>
-            )}
-            {currentProvider?.docs_url && (
-              <a
-                href={currentProvider.docs_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-blue-600 underline"
-              >
-                {currentProvider.display_name} docs <ExternalLink className="h-3 w-3" />
-              </a>
             )}
           </div>
 

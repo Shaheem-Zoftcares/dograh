@@ -8,7 +8,7 @@ export default function AutomationPage() {
     return (
         <div className="container mx-auto p-6 space-y-6">
             <div>
-                <h1 className="text-3xl font-bold mb-2">Automation</h1>
+                <h1 className="mb-2">Automation</h1>
                 <p>Automate your workflows and processes</p>
             </div>
 
@@ -22,7 +22,7 @@ export default function AutomationPage() {
                 <CardContent>
                     <div className="text-center py-12">
                         <Zap className="w-16 h-16 mx-auto mb-6" />
-                        <p className="text-lg mb-4">
+                        <p className="type-subtitle mb-4">
                             We&apos;re working on powerful automation features to help you streamline your workflows.
                         </p>
                         <p>

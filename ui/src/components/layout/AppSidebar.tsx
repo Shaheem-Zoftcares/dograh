@@ -14,7 +14,6 @@ import {
   Megaphone,
   Phone,
   TrendingUp,
-  UserRound,
   Workflow,
   Wrench,
 } from "lucide-react";
@@ -24,11 +23,9 @@ import React from "react";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { SidebarTeamSwitcher } from "@/components/layout/SidebarTeamSwitcher";
-import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
   SidebarHeader,
@@ -39,7 +36,6 @@ import {
 } from "@/components/ui/sidebar";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useAppConfig } from "@/context/AppConfigContext";
-import { useLeadForms } from "@/context/LeadFormsContext";
 import { useTelephonyConfigWarnings } from "@/context/TelephonyConfigWarningsContext";
 import { useLatestReleaseVersion } from "@/hooks/useLatestReleaseVersion";
 import { useAuth } from "@/lib/auth";
@@ -142,7 +138,6 @@ export function AppSidebar() {
   const { state, isMobile, setOpenMobile } = useSidebar();
   const { provider } = useAuth();
   const { config } = useAppConfig();
-  const { openHireExpert } = useLeadForms();
   const {
     telnyxMissingWebhookPublicKeyCount,
     vonageMissingSignatureSecretCount,
@@ -246,34 +241,6 @@ export function AppSidebar() {
     );
   };
 
-  // "Hire an Expert" CTA in the sidebar footer.
-  const hireExpertButton = isCollapsed ? (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          size="icon"
-          className="h-8 w-8 rounded-full bg-primary text-primary-foreground hover:bg-[#074A6E] dark:bg-[#096092] dark:hover:bg-[#074A6E]"
-          onClick={() => openHireExpert("sidebar")}
-          aria-label="Hire an Expert"
-        >
-          <UserRound className="h-3.5 w-3.5" />
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent side="right">
-        <p>Hire an Expert</p>
-      </TooltipContent>
-    </Tooltip>
-  ) : (
-    <Button
-      size="sm"
-      className="h-8 gap-1.5 rounded-full bg-primary px-3 text-xs text-primary-foreground hover:bg-[#074A6E] dark:bg-[#096092] dark:hover:bg-[#074A6E]"
-      onClick={() => openHireExpert("sidebar")}
-    >
-      <UserRound className="h-3.5 w-3.5" />
-      Hire an Expert
-    </Button>
-  );
-
   return (
     <Sidebar collapsible="icon" variant="floating" className="app-sidebar-dock py-3 pl-3">
       <SidebarHeader className="border-b border-border/60 px-4 py-4 notranslate dark:border-white/10" translate="no">
@@ -294,18 +261,15 @@ export function AppSidebar() {
             {isBehind && latestRelease && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <a
-                    href="https://docs.dograh.com/deployment/update"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-md border bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium leading-none text-amber-900 transition-opacity hover:opacity-80 dark:bg-amber-950 dark:text-amber-200"
+                  <span
+                    className="inline-flex items-center gap-1 rounded-md border bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium leading-none text-amber-900 dark:bg-amber-950 dark:text-amber-200"
                   >
                     <ArrowUpCircle className="h-3 w-3" />
                     Update
-                  </a>
+                  </span>
                 </TooltipTrigger>
                 <TooltipContent side="bottom">
-                  <p>Latest: {latestRelease} - click to see the update guide</p>
+                  <p>Latest: {latestRelease}</p>
                 </TooltipContent>
               </Tooltip>
             )}
@@ -358,15 +322,6 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
-
-      <SidebarFooter
-        className={cn("p-3 notranslate", isCollapsed && "p-2")}
-        translate="no"
-      >
-        <div className="flex justify-center">
-          {hireExpertButton}
-        </div>
-      </SidebarFooter>
     </Sidebar>
   );
 }

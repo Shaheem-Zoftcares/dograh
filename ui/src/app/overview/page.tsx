@@ -1,114 +1,80 @@
 "use client";
 
-import Link from 'next/link';
+import { Brain, Workflow } from "lucide-react";
+import Link from "next/link";
 
-import { GitHubStarBadge } from '@/components/layout/GitHubStarBadge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useAuth } from '@/lib/auth';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useAuth } from "@/lib/auth";
+
+const QUICK_ACTIONS = [
+    {
+        title: "Voice Agents",
+        description: "Create and manage agents with the visual workflow editor.",
+        href: "/workflow",
+        label: "Go to Agents",
+        icon: Workflow,
+        primary: true,
+    },
+    {
+        title: "Model Configuration",
+        description: "Set up LLM, TTS, and STT providers for your organization.",
+        href: "/model-configurations",
+        label: "Configure Models",
+        icon: Brain,
+        primary: false,
+    },
+] as const;
 
 export default function OverviewPage() {
-    const { user, provider } = useAuth();
-    const isOSSMode = provider !== 'stack';
+    const { user } = useAuth();
+    const firstName = user?.displayName?.split(" ")[0];
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="max-w-4xl mx-auto">
-                {/* Welcome Card */}
-                <Card className="mb-8">
-                    <CardHeader>
-                        <CardTitle className="text-3xl">
-                            {isOSSMode ? (
-                                "Welcome to Zyli"
-                            ) : (
-                                `Welcome${user?.displayName ? `, ${user.displayName.split(' ')[0]}` : ''}!`
-                            )}
-                        </CardTitle>
-                        <CardDescription className="text-lg mt-2">
-                            {isOSSMode ? (
-                                <>
-                                    Open source alternative to Vapi. Help us support the project by giving us a star on GitHub.
-                                </>
-                            ) : (
-                                "Get started with building voice AI workflows"
-                            )}
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        {isOSSMode && (
-                            <div className="mb-6">
-                                <GitHubStarBadge label="Star us on GitHub" showCount source="overview_page" />
-                            </div>
-                        )}
-                    </CardContent>
-                </Card>
+        <div className="container mx-auto px-4 py-6">
+            <div className="mx-auto max-w-5xl">
+                <header className="mb-6">
+                    <p className="type-eyebrow">Overview</p>
+                    <h1 className="mt-1">
+                        {firstName ? `Welcome, ${firstName}` : "Welcome to Zyli"}
+                    </h1>
+                    <p className="type-subtitle mt-1 max-w-2xl">
+                        Build and deploy voice AI workflows from one place.
+                    </p>
+                </header>
 
-                {/* Quick Actions */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Create and Manage your Voice Agents</CardTitle>
-                            <CardDescription>
-                                Build powerful AI Voice Agents with our visual editor
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Button asChild>
-                                <Link href="/workflow">
-                                    Go to Agents
-                                </Link>
-                            </Button>
-                        </CardContent>
-                    </Card>
-
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Configure Services</CardTitle>
-                            <CardDescription>
-                                Set up your AI services like LLM, TTS, and STT providers
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <Button asChild variant="outline">
-                                <Link href="/model-configurations">
-                                    Configure Models
-                                </Link>
-                            </Button>
-                        </CardContent>
-                    </Card>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {QUICK_ACTIONS.map((action) => {
+                        const Icon = action.icon;
+                        return (
+                            <Card key={action.href} className="overflow-hidden">
+                                <CardContent className="flex h-full flex-col gap-4 p-5">
+                                    <div className="flex items-start gap-3">
+                                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                            <Icon className="h-4 w-4" />
+                                        </div>
+                                        <div className="min-w-0 space-y-1">
+                                            <h2 className="text-foreground">
+                                                {action.title}
+                                            </h2>
+                                            <p className="text-sm leading-relaxed text-muted-foreground">
+                                                {action.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <Button
+                                        asChild
+                                        size="sm"
+                                        variant={action.primary ? "default" : "outline"}
+                                        className="w-fit"
+                                    >
+                                        <Link href={action.href}>{action.label}</Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        );
+                    })}
                 </div>
-
-                {/* Resources Section */}
-                <Card className="mt-8">
-                    <CardHeader>
-                        <CardTitle>Resources</CardTitle>
-                        <CardDescription>
-                            Get help and learn more about Zyli
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="flex flex-wrap gap-4">
-                            <Button asChild variant="outline">
-                                <a
-                                    href="https://docs.dograh.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Documentation
-                                </a>
-                            </Button>
-                            <Button asChild variant="outline">
-                                <a
-                                    href="https://github.com/dograh-hq/dograh/issues"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Report an Issue
-                                </a>
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
             </div>
         </div>
     );

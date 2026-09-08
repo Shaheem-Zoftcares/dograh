@@ -101,7 +101,7 @@ export function WorkflowRunsTable({
             {/* Title and Filters */}
             {showFilters && (
                 <div className="mb-6">
-                    <h1 className="text-2xl font-bold mb-4">{title}</h1>
+                    <h1 className="mb-4">{title}</h1>
                     <FilterBuilder
                         availableAttributes={availableAttributes}
                         activeFilters={activeFilters}

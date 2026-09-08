@@ -41,7 +41,7 @@ export const ContextVariablesSection = ({
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="text-lg">Template Context Variables</CardTitle>
+                <CardTitle>Template Context Variables</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
                 {/* Existing Variables */}
