@@ -87,7 +87,7 @@ export default function WorkflowDetailPage() {
         return (
             <WorkflowLayout showFeaturesNav={false}>
                 <div className="flex items-center justify-center min-h-screen">
-                    <div className="text-lg text-destructive">{error || 'Workflow not found'}</div>
+                    <div className="text-sm text-destructive">{error || 'Workflow not found'}</div>
                 </div>
             </WorkflowLayout>
         );

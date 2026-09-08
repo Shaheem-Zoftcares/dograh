@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Upload } from "lucide-react";
+import { Upload } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -36,14 +36,11 @@ export default function RecordingsPage() {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="mb-8">
-                <h1 className="text-3xl font-bold mb-2">Recordings</h1>
+                <h1 className="mb-2">Recordings</h1>
                 <p className="text-muted-foreground">
                     Manage audio recordings for your organization. Use{" "}
                     <code className="rounded bg-muted px-1 text-xs">@</code> in prompt fields to insert them,
-                    or as transition messages in tool calls.{" "}
-                    <a href="https://docs.dograh.com/voice-agent/pre-recorded-audio" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 underline">
-                        Learn more <ExternalLink className="h-3 w-3" />
-                    </a>
+                    or as transition messages in tool calls.
                 </p>
             </div>
 

@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -141,7 +141,70 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-sans text-sm leading-normal text-foreground antialiased;
+  }
+
+  h1 {
+    @apply text-xl font-semibold tracking-tight text-foreground;
+  }
+
+  h2 {
+    @apply text-base font-semibold tracking-tight text-foreground;
+  }
+
+  h3 {
+    @apply text-sm font-semibold text-foreground;
+  }
+
+  h4 {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  p {
+    @apply text-sm leading-relaxed;
+  }
+
+  small {
+    @apply text-xs;
+  }
+}
+
+@layer utilities {
+  /* Semantic typography — use instead of ad-hoc text-* sizes */
+  .type-page-title {
+    @apply text-xl font-semibold tracking-tight text-foreground;
+  }
+
+  .type-section-title {
+    @apply text-base font-semibold tracking-tight text-foreground;
+  }
+
+  .type-card-title {
+    @apply text-sm font-semibold text-foreground;
+  }
+
+  .type-subtitle {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .type-body {
+    @apply text-sm text-foreground;
+  }
+
+  .type-caption {
+    @apply text-xs text-muted-foreground;
+  }
+
+  .type-eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground;
+  }
+
+  .type-label {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  .type-stat {
+    @apply text-xl font-semibold tabular-nums text-foreground;
   }
 }
 

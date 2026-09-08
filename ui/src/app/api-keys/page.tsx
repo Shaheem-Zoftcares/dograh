@@ -324,7 +324,7 @@ export default function APIKeysPage() {
             <div className="container mx-auto px-4 py-8">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-8">
-                        <h1 className="text-3xl font-bold mb-2">Developer Portal</h1>
+                        <h1 className="mb-2">Developer Portal</h1>
                         <p className="text-muted-foreground">Manage your API keys to access Zyli services programmatically</p>
                     </div>
 
@@ -463,7 +463,7 @@ export default function APIKeysPage() {
                                             {showServiceArchived ? 'Hide' : 'Show'} Archived
                                         </Button>
                                     )}
-                                    {canCreateServiceKey ? (
+                                    {canCreateServiceKey && (
                                         <Button
                                             onClick={() => setIsCreateServiceDialogOpen(true)}
                                             size="sm"
@@ -471,10 +471,6 @@ export default function APIKeysPage() {
                                             <Plus className="w-4 h-4 mr-2" />
                                             Create Service Key
                                         </Button>
-                                    ) : (
-                                        <span className="text">
-                                            To generate additional service keys, <a href="https://app.dograh.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sign up on app.dograh.com</a>
-                                        </span>
                                     )}
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Plus, RotateCcw, Search, Trash2 } from "lucide-react";
+import { Plus, RotateCcw, Search, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
@@ -22,13 +22,13 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+} from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -297,12 +297,9 @@ export default function ToolsPage() {
             <div className="container mx-auto px-4 py-8">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-8">
-                        <h1 className="text-3xl font-bold mb-2">Tools</h1>
-                        <p className="text-muted-foreground">
-                            Manage reusable tools that can be used across your workflows.{" "}
-                            <a href="https://docs.dograh.com/voice-agent/tools/introduction" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 underline">
-                                Learn more <ExternalLink className="h-3 w-3" />
-                            </a>
+                        <h1 className="mb-2">Tools</h1>
+                        <p className="type-subtitle">
+                            Manage reusable tools that can be used across your workflows.
                         </p>
                     </div>
 
@@ -432,7 +429,7 @@ export default function ToolsPage() {
                                     {/* Archived Tools */}
                                     {archivedTools.length > 0 && (
                                         <div className="mt-8">
-                                            <h3 className="text-lg font-semibold text-muted-foreground mb-4">
+                                            <h3 className="text-muted-foreground mb-4">
                                                 Archived Tools
                                             </h3>
                                             <div className="space-y-4">
@@ -492,26 +489,27 @@ export default function ToolsPage() {
                 </div>
             </div>
 
-            {/* Create Tool Dialog */}
-            <Dialog open={isCreateDialogOpen} onOpenChange={(open) => {
+            {/* Create Tool Panel */}
+            <Sheet open={isCreateDialogOpen} onOpenChange={(open) => {
                 setIsCreateDialogOpen(open);
                 if (open) {
                     setCreateError(null);
                 } else {
-                    // Reset MCP fields when dialog is closed without creating
+                    // Reset MCP fields when the panel is closed without creating
                     setMcpUrl("");
                     setMcpCredentialUuid("");
                     setMcpToolsFilter("");
                 }
             }}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Create New Tool</DialogTitle>
-                        <DialogDescription>
+                <SheetContent side="right" className="flex w-full flex-col gap-0 overflow-hidden p-0 sm:max-w-lg">
+                    <SheetHeader className="shrink-0 border-b px-6 py-4 text-left">
+                        <SheetTitle>Create New Tool</SheetTitle>
+                        <SheetDescription>
                             Create a new tool that can be used in your workflows.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <div className="grid gap-4 py-4">
+                        </SheetDescription>
+                    </SheetHeader>
+                    <div className="min-h-0 flex-1 overflow-y-auto px-6 py-4">
+                    <div className="grid gap-4">
                         <div className="grid gap-2">
                             <Label>Tool Type</Label>
                             <Select
@@ -612,11 +610,12 @@ export default function ToolsPage() {
                         )}
                     </div>
                     {createError && (
-                        <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm">
+                        <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm">
                             {createError}
                         </div>
                     )}
-                    <DialogFooter>
+                    </div>
+                    <SheetFooter className="shrink-0 border-t px-6 py-4 sm:flex-row sm:justify-end">
                         <Button
                             variant="outline"
                             onClick={() => setIsCreateDialogOpen(false)}
@@ -626,9 +625,9 @@ export default function ToolsPage() {
                         <Button onClick={handleCreateTool} disabled={isCreating}>
                             {isCreating ? "Creating..." : "Create Tool"}
                         </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
+                    </SheetFooter>
+                </SheetContent>
+            </Sheet>
         </div>
     );
 }

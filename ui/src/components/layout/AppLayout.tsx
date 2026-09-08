@@ -7,7 +7,6 @@ import React, { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { SidebarInset, SidebarProvider, useSidebar } from "@/components/ui/sidebar";
-import { LeadFormsProvider } from "@/context/LeadFormsContext";
 
 import { AppHeaderUserMenu } from "./AppHeaderUserMenu";
 import { AppSidebar } from "./AppSidebar";
@@ -21,7 +20,7 @@ function AppHeader() {
         <Button variant="ghost" size="icon" onClick={toggleSidebar} aria-label="Open menu">
           <Menu className="h-5 w-5" />
         </Button>
-        <Link href="/" className="text-lg font-bold text-primary">Zyli</Link>
+        <Link href="/" className="text-base font-semibold text-primary">Zyli</Link>
       </div>
       <AppHeaderUserMenu />
     </header>
@@ -53,7 +52,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({
   return (
     <SidebarProvider defaultOpen>
       {shouldShowSidebar ? (
-        <LeadFormsProvider>
           <div className="flex min-h-screen w-full bg-background">
             <AppSidebar />
             <SidebarInset className="flex-1">
@@ -86,7 +84,6 @@ const AppLayout: React.FC<AppLayoutProps> = ({
               </main>
             </SidebarInset>
           </div>
-        </LeadFormsProvider>
       ) : (
         <div className="app-surface w-full flex-1">
           {children}

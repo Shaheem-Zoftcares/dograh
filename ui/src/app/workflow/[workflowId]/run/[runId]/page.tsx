@@ -91,7 +91,7 @@ function MetricCard({ label, value }: { label: string; value: string }) {
     return (
         <div className="rounded-xl border border-border bg-muted/40 px-4 py-3">
             <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
-            <p className="mt-2 text-lg font-semibold text-foreground">{value}</p>
+            <p className="type-stat mt-2">{value}</p>
         </div>
     );
 }
@@ -435,7 +435,7 @@ function SplitTracksSection({
                 onEnded={handleTrackEnded}
             />
             <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Split Tracks</CardTitle>
+                <CardTitle>Split Tracks</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -550,7 +550,7 @@ function RunMetricsSection({
     return (
         <Card className="border-border">
             <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Run Metrics</CardTitle>
+                <CardTitle>Run Metrics</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                 <MetricCard label="Duration" value={formatDuration(costInfo?.call_duration_seconds)} />
@@ -581,7 +581,7 @@ function ContextDisplay({ title, context }: { title: string; context: Record<str
         return (
             <Card className="border-border">
                 <CardHeader className="pb-2">
-                    <CardTitle className="text-lg">{title}</CardTitle>
+                    <CardTitle>{title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <p className="text-sm text-muted-foreground">No data available</p>
@@ -593,7 +593,7 @@ function ContextDisplay({ title, context }: { title: string; context: Record<str
     return (
         <Card className="border-border">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-lg">{title}</CardTitle>
+                <CardTitle>{title}</CardTitle>
                 <Button variant="ghost" size="sm" onClick={handleCopy} className="gap-2">
                     {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                     {copied ? 'Copied' : 'Copy'}
@@ -731,7 +731,7 @@ export default function WorkflowRunPage() {
                                             <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
                                                 Agent
                                             </p>
-                                            <p className="truncate text-xl font-semibold text-foreground">
+                                            <p className="type-stat truncate">
                                                 {workflowName}
                                             </p>
                                         </div>
@@ -742,7 +742,7 @@ export default function WorkflowRunPage() {
                                     <CopyDebugIdButton label="Run ID" value={runId} />
                                 </div>
                                 <div className="flex min-w-0 items-center gap-4 pt-1">
-                                    <CardTitle className="min-w-0 text-2xl">
+                                    <CardTitle className="min-w-0">
                                         {isTextChatRun ? 'Text Chat Session' : 'Agent Run Completed'}
                                     </CardTitle>
                                     <div className={`h-8 w-8 rounded-full flex items-center justify-center ${isTextChatRun ? 'bg-sky-500/15' : 'bg-emerald-500/20'}`}>
@@ -888,7 +888,7 @@ export default function WorkflowRunPage() {
             <div className="flex h-full items-center justify-center p-6">
                 <Card className="w-full max-w-xl border-border">
                     <CardHeader className="space-y-2">
-                        <CardTitle className="text-2xl">Run Details Unavailable</CardTitle>
+                        <CardTitle>Run Details Unavailable</CardTitle>
                         <p className="text-sm text-muted-foreground">
                             This run does not have a details view yet. Go back to the workflow to continue testing or make changes.
                         </p>

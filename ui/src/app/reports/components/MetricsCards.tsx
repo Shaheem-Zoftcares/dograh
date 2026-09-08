@@ -18,7 +18,7 @@ export function MetricsCards({ metrics }: MetricsCardsProps) {
           <Phone className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{metrics.total_runs.toLocaleString()}</div>
+          <div className="type-stat">{metrics.total_runs.toLocaleString()}</div>
           <p className="text-xs text-muted-foreground">
             Total calls processed today
           </p>
@@ -31,7 +31,7 @@ export function MetricsCards({ metrics }: MetricsCardsProps) {
           <PhoneForwarded className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{metrics.xfer_count.toLocaleString()}</div>
+          <div className="type-stat">{metrics.xfer_count.toLocaleString()}</div>
           <p className="text-xs text-muted-foreground">
             Calls transferred (XFER)
           </p>

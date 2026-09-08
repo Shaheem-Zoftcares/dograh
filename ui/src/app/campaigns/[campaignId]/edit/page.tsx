@@ -303,7 +303,7 @@ export default function EditCampaignPage() {
                     <ArrowLeft className="h-4 w-4 mr-2" />
                     Back to Campaign
                 </Button>
-                <h1 className="text-3xl font-bold mb-2">Edit Campaign</h1>
+                <h1 className="mb-2">Edit Campaign</h1>
                 <p className="text-muted-foreground">Modify campaign settings</p>
             </div>
 

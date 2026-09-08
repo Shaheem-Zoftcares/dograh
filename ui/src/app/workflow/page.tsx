@@ -75,7 +75,7 @@ async function WorkflowList() {
             <>
                 {/* Active Workflows Section */}
                 <div className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4">Active Agents</h2>
+                    <h2 className="mb-4">Active Agents</h2>
                     {activeWorkflows.length > 0 || folders.length > 0 ? (
                         <AgentFolderView workflows={activeWorkflows} folders={folders} />
                     ) : (
@@ -114,7 +114,7 @@ async function PageContent() {
             {/* Your Workflows Section */}
             <div className="mb-6">
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-bold">Your Agents</h1>
+                    <h1>Your Agents</h1>
                     <div className="flex gap-2">
                         <UploadWorkflowButton />
                         <CreateFolderButton />

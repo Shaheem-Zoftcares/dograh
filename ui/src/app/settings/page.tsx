@@ -1,7 +1,5 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
-
 import { MCPSection } from "@/components/MCPSection";
 import { OrganizationPreferencesSection } from "@/components/OrganizationPreferencesSection";
 import { TelemetrySection } from "@/components/TelemetrySection";
@@ -18,7 +16,7 @@ export default function SettingsPage() {
     <div className="flex justify-center py-12 px-4">
       <div className="w-full max-w-2xl space-y-6">
         <div>
-          <h1 className="text-2xl font-bold">Platform Settings</h1>
+          <h1>Platform Settings</h1>
           <p className="text-muted-foreground">
             Manage your platform configuration and integrations.
           </p>
@@ -41,16 +39,7 @@ export default function SettingsPage() {
           <CardHeader>
             <CardTitle>MCP Server</CardTitle>
             <CardDescription>
-              Let AI agents access your Zyli workspace and documentation via
-              the Model Context Protocol.{" "}
-              <a
-                href="https://docs.dograh.com/integrations/mcp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-0.5 underline"
-              >
-                Learn more <ExternalLink className="h-3 w-3" />
-              </a>
+              Let AI agents access your Zyli workspace via the Model Context Protocol.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -61,17 +50,9 @@ export default function SettingsPage() {
         <Card>
           <CardHeader>
             <CardTitle>Telemetry</CardTitle>
-            <CardDescription>
-              Configure Langfuse tracing for your voice agent calls.{" "}
-              <a
-                href="https://docs.dograh.com/configurations/tracing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-0.5 underline"
-              >
-                Learn more <ExternalLink className="h-3 w-3" />
-              </a>
-            </CardDescription>
+                <CardDescription>
+                    Configure Langfuse tracing for your voice agent calls.
+                </CardDescription>
           </CardHeader>
           <CardContent>
             <TelemetrySection />

@@ -5,7 +5,6 @@ import {
     ChevronRight,
     CircleDollarSign,
     CreditCard,
-    ExternalLink,
     Info,
     RefreshCw,
 } from "lucide-react";
@@ -246,8 +245,8 @@ export default function BillingPage() {
         <div className="container mx-auto p-6 space-y-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold mb-2">Billing</h1>
-                    <p className="text-muted-foreground">
+                    <h1 className="mb-2">Billing</h1>
+                    <p className="type-subtitle">
                         Credits, balance, and account usage for your organization.
                     </p>
                 </div>
@@ -271,25 +270,14 @@ export default function BillingPage() {
                     <div className="text-sm text-amber-900 dark:text-amber-200">
                         <p className="font-medium">Credit purchases are unavailable in OSS mode</p>
                         <p className="mt-1">
-                            You can&apos;t purchase credits from this self-hosted app. Sign up and
-                            purchase credits at{" "}
-                            <a
-                                href="https://app.dograh.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 font-medium underline underline-offset-2"
-                            >
-                                app.dograh.com
-                                <ExternalLink className="h-3 w-3" />
-                            </a>
-                            . Then add the generated service key in{" "}
+                            You can&apos;t purchase credits from this self-hosted app. Add a service key in{" "}
                             <Link
                                 href="/model-configurations"
                                 className="font-medium underline underline-offset-2"
                             >
                                 Model Configurations
                             </Link>
-                            . Usage for that service key is visible in app.dograh.com.
+                            {" "}to use Zyli-managed models.
                         </p>
                     </div>
                 </div>
@@ -299,7 +287,7 @@ export default function BillingPage() {
                 <Card>
                     <CardHeader className="pb-2">
                         <CardDescription>{isOssMode ? "Credits remaining" : "Credit balance"}</CardDescription>
-                        <CardTitle className="flex items-center gap-2 text-3xl">
+                        <CardTitle className="flex items-center gap-2 type-stat">
                             <CircleDollarSign className="h-6 w-6 text-muted-foreground" />
                             {formatCredits(remainingCredits)}
                         </CardTitle>
@@ -312,7 +300,7 @@ export default function BillingPage() {
                 <Card>
                     <CardHeader className="pb-2">
                         <CardDescription>Credits used</CardDescription>
-                        <CardTitle className="text-3xl">{formatCredits(usedCredits)}</CardTitle>
+                        <CardTitle className="type-stat">{formatCredits(usedCredits)}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <p className="text-sm text-muted-foreground">

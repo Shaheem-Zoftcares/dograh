@@ -80,7 +80,7 @@ export function LeadModalShell({
                 {eyebrow}
               </span>
             )}
-            <DialogTitle className="mt-1.5 text-2xl font-semibold leading-tight tracking-tight">
+            <DialogTitle className="mt-1.5 leading-tight tracking-tight">
               {title}
             </DialogTitle>
             {description && (

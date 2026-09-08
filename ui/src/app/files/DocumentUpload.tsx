@@ -268,7 +268,7 @@ export default function DocumentUpload({ onUploadSuccess }: DocumentUploadProps)
         onClick={handleButtonClick}
       >
         <Upload className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
-        <p className="text-lg font-medium mb-2">
+        <p className="type-label mb-2">
           {uploading ? 'Uploading...' : 'Drop your document here'}
         </p>
         <p className="text-sm text-muted-foreground mb-4">
