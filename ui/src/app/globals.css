@@ -54,38 +54,38 @@
   --card-foreground: #0F172A;
   --popover: #FFFFFF;
   --popover-foreground: #0F172A;
-  --primary: #096092;
+  --primary: #7F1425;
   --primary-foreground: #FFFFFF;
-  --secondary: #E8F4FA;
-  --secondary-foreground: #0F172A;
-  --muted: #E8F4FA;
+  --secondary: #FCECEF;
+  --secondary-foreground: #7F1425;
+  --muted: #FCECEF;
   --muted-foreground: #64748B;
-  --accent: #F1F5F9;
+  --accent: #FBF0F2;
   --accent-foreground: #0F172A;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
   --border: #E2E8F0;
   --input: #E2E8F0;
-  --ring: #096092;
-  --chart-1: #096092;
-  --chart-2: #04EAEC;
-  --chart-3: #191E7D;
+  --ring: #7F1425;
+  --chart-1: #7F1425;
+  --chart-2: #E25C70;
+  --chart-3: #2B090F;
   --chart-4: #16A34A;
   --chart-5: #CA8A04;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #64748B;
-  --sidebar-primary: #096092;
+  --sidebar-primary: #7F1425;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F1F5F9;
-  --sidebar-accent-foreground: #0F172A;
+  --sidebar-accent: #FCECEF;
+  --sidebar-accent-foreground: #7F1425;
   --sidebar-border: #E2E8F0;
-  --sidebar-ring: #096092;
-  --cta: #096092;
+  --sidebar-ring: #7F1425;
+  --cta: #7F1425;
   --cta-foreground: #FFFFFF;
   --brand-imprint: none;
 
   /* Zyli design tokens */
-  --color-primary-hover: #074A6E;
+  --color-primary-hover: #65101E;
   --color-surface: #FFFFFF;
   --radius-sm: 10px;
   --radius-md: 14px;
@@ -104,7 +104,7 @@
   --card-foreground: #EEF2F7;
   --popover: #1E293B;
   --popover-foreground: #EEF2F7;
-  --primary: #096092;
+  --primary: #7F1425;
   --primary-foreground: #FFFFFF;
   --secondary: #1E293B;
   --secondary-foreground: #EEF2F7;
@@ -116,21 +116,21 @@
   --destructive-foreground: #FFFFFF;
   --border: rgb(255 255 255 / 10%);
   --input: rgb(255 255 255 / 15%);
-  --ring: #096092;
-  --chart-1: #096092;
-  --chart-2: #64748B;
+  --ring: #7F1425;
+  --chart-1: #9E1B32;
+  --chart-2: #E25C70;
   --chart-3: #94A3B8;
   --chart-4: #16A34A;
   --chart-5: #CA8A04;
-  --sidebar: #191E7D;
+  --sidebar: #2B090F;
   --sidebar-foreground: #CBD5E1;
-  --sidebar-primary: #096092;
+  --sidebar-primary: #7F1425;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: rgb(255 255 255 / 10%);
   --sidebar-accent-foreground: #EEF2F7;
   --sidebar-border: rgb(255 255 255 / 12%);
-  --sidebar-ring: #096092;
-  --cta: #096092;
+  --sidebar-ring: #7F1425;
+  --cta: #7F1425;
   --cta-foreground: #FFFFFF;
   --brand-imprint: none;
 }
@@ -222,7 +222,7 @@
 }
 
 /* Attention pulse applied by OnboardingTooltip to the element its arrow points
-   at; removed automatically when the tooltip is dismissed. Blue matches the
+   at; removed automatically when the tooltip is dismissed. Matches the
    tooltip body so the ring and the callout read as one unit. Two shadow layers:
    a constant outline so the target stays highlighted between pulses, plus an
    expanding wave, with a slight breathing scale on top. */
@@ -233,8 +233,8 @@
 @keyframes onboarding-pulse {
   0% {
     box-shadow:
-      0 0 0 3px rgba(9, 96, 146, 0.75),
-      0 0 0 3px rgba(9, 96, 146, 0.6);
+      0 0 0 3px rgba(127, 20, 37, 0.75),
+      0 0 0 3px rgba(127, 20, 37, 0.6);
     transform: scale(1);
   }
   40% {
@@ -242,21 +242,21 @@
   }
   70% {
     box-shadow:
-      0 0 0 3px rgba(9, 96, 146, 0.75),
-      0 0 0 18px rgba(9, 96, 146, 0);
+      0 0 0 3px rgba(127, 20, 37, 0.75),
+      0 0 0 18px rgba(127, 20, 37, 0);
     transform: scale(1);
   }
   100% {
     box-shadow:
-      0 0 0 3px rgba(9, 96, 146, 0.75),
-      0 0 0 18px rgba(9, 96, 146, 0);
+      0 0 0 3px rgba(127, 20, 37, 0.75),
+      0 0 0 18px rgba(127, 20, 37, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .onboarding-pulse {
     animation: none;
-    box-shadow: 0 0 0 3px rgba(9, 96, 146, 0.6);
+    box-shadow: 0 0 0 3px rgba(127, 20, 37, 0.6);
   }
 }
 
@@ -351,7 +351,7 @@
 }
 .dark .app-sidebar-dock [data-slot="sidebar-inner"] {
   border-color: rgb(255 255 255 / 12%);
-  background-color: #191E7D;
+  background-color: #2B090F;
   box-shadow: 0 8px 30px -8px rgb(0 0 0 / 0.35);
 }
 
@@ -447,7 +447,7 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgb(9 96 146 / 0.2);
+  box-shadow: 0 4px 14px rgb(127 20 37 / 0.2);
   transition: background-color 0.2s ease;
 }
 

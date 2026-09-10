@@ -196,7 +196,7 @@ export function AppSidebar() {
         className={cn(
           "h-10 rounded-full px-3 transition-all group-data-[collapsible=icon]:size-10! group-data-[collapsible=icon]:rounded-full!",
           isItemActive
-            ? "!bg-primary !font-medium !text-primary-foreground shadow-md hover:!bg-[#074A6E] hover:!text-primary-foreground dark:!bg-[#096092] dark:hover:!bg-[#074A6E]"
+            ? "!bg-primary !font-medium !text-primary-foreground shadow-md hover:!bg-[#65101E] hover:!text-primary-foreground dark:!bg-[#7F1425] dark:hover:!bg-[#65101E]"
             : "!bg-transparent !text-muted-foreground hover:!bg-muted/50 hover:!text-foreground dark:hover:!bg-white/10 dark:hover:!text-white"
         )}
       >

@@ -14,12 +14,12 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_1990_7724" x1="5127.14" y1="3354.55" x2="286.944" y2="1406.8" gradientUnits="userSpaceOnUse">
-<stop stop-color="#191E7D"/>
-<stop offset="1" stop-color="#04EAEC"/>
+<stop stop-color="#2B090F"/>
+<stop offset="1" stop-color="#E25C70"/>
 </linearGradient>
 <linearGradient id="paint1_linear_1990_7724" x1="1482.56" y1="4010.01" x2="5720.25" y2="167.707" gradientUnits="userSpaceOnUse">
-<stop stop-color="#060043" stop-opacity="0.5"/>
-<stop offset="1" stop-color="#00F7FF" stop-opacity="0.61"/>
+<stop stop-color="#1F050A" stop-opacity="0.5"/>
+<stop offset="1" stop-color="#FF758C" stop-opacity="0.61"/>
 </linearGradient>
 <clipPath id="clip0_1990_7724">
 <rect width="11540" height="4524" fill="white"/>

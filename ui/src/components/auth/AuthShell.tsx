@@ -40,7 +40,7 @@ export function AuthShell({
       </main>
 
       {/* Brand / value panel (RIGHT) — hidden on mobile */}
-      <aside className="relative hidden flex-col justify-between overflow-hidden border-l border-border/60 bg-[#191E7D] p-10 lg:flex xl:p-14">
+      <aside className="relative hidden flex-col justify-between overflow-hidden border-l border-border/60 bg-[#2B090F] p-10 lg:flex xl:p-14">
         {/* Ambient depth: soft radial glow behind the content */}
         <div
           aria-hidden
